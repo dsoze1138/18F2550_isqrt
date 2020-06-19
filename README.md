@@ -4,7 +4,7 @@
 This is a MPLABX v5.40 sample project to show a pic-as(v2.20) 
 project and debug method that mostly works.
 
-The method is tedious to use and can become confused is a
+The method is tedious to use and can become confused if a
 step is missed or the wrong tool bar gadget is clicked.
 
 The method goes like this:
