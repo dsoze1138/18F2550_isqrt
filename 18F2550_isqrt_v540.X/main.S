@@ -5,7 +5,7 @@
 ; Compiler: pic-as(v2.20)
 ; IDE:      MPLABX v5.40
 ;
-; Desription:
+; Description:
 ;
 ;   Find integer square root of a 32-bit value
 ;
@@ -35,6 +35,7 @@
 ;
     processor   18F2550
     pagewidth   132
+    radix       dec
 ;
  config PLLDIV = 5          ; PLL Prescaler Selection bits (Divide by 5 (20 MHz oscillator input))
  config CPUDIV = OSC1_PLL2  ; System Clock Postscaler Selection bits ([Primary Oscillator Src: /1][96 MHz PLL Src: /2])
@@ -82,7 +83,7 @@
 ;
 #define FCYC (FOSC/4)
 ;
-; Include device specific definions for Special Function Registers
+; Include device specific definitions for Special Function Registers
 ;
 #include <xc.inc>
 ;
@@ -149,7 +150,7 @@ Start:
 ;       unsigned long  bit;
 ;       unsigned long temp;
 ;
-;       void isqrt(void)
+;       unsigned long isqrt(void)
 ;       {
 ;           out = 0;
 ;           bit = 1L << 30;
@@ -295,7 +296,7 @@ isqrt_done:
     psect   main_code,global,reloc=2,class=CODE,delta=1
 ;
 ;
-; Constantants
+; Constants
 #define TEST_VALUE1 2*2
 #define TEST_VALUE2 3*3
 #define TEST_VALUE3 4*4
