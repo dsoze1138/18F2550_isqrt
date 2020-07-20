@@ -2,39 +2,24 @@
 ==========================================
 
 This is a MPLABX v5.40 sample project to show a pic-as(v2.20) 
-project and debug method that mostly works.
+project and debug method.
 
-The method is tedious to use and can become confused if a
-step is missed or the wrong tool bar gadget is clicked.
+Step 1: Open the 18F2550_isqrt_v540 project
 
-The method goes like this:
+Step 2: Set at breakpoint in the test.S file at line 330: "call    isqrt"
 
-Create a "normal" project to develop the code with.
- 
-Do all the work to get a clean build ready for debug and 
-then build it explicitly for debug, without starting a 
-debug session.
- 
-This step needs to be done only once per project:
+Step 3: Select menu: Debug->Debug Project
 
-Create another project using the "File->Import->Hex/ELF...(Prebuilt) File" 
-menu to import the ELF file from the "..\dist\default\debug" folder
-of the "nornal" project.
+Step 4: Add symbolic names to Variables (or Watch) windows
 
-Be sure to change the path to where the "debug" project
-is created so it is not in the "..\dist\default\debug" path. 
-This is important because every thing in this path is deleted 
-when the IDE does a clean for the "normal" project.
+Step 4a: In the test.S file at line 180 click on symbol: "isqrt_in"
 
-We can call it the "debug" project.
- 
-At this point close the "normal" project as the debug session 
-will complain that the source files are opened in two projects 
-if you do not.
- 
-Select the "debug" project and start a debug session.
- 
-Note:
-Make sure that you have selected the same "Hardware Tool" 
-for program/debug in both projects.
+Step 4b: On keboard hold down ctrl+shift and press F9 to add "New Watch", click OK
 
+Step 4c: In the Variables (or Watch) window right click on the "isqrt_in" symbol the select User Defined Size->32-bits
+
+Steps 4d to 4f: Do the same for symbol "isqrt_out"
+
+Step 5: Right click on the "Name Type Address Value" bar in the Variables (or Watch) window then select the Decimal:Decinal formatted value to dsiplay decimal value column.
+
+You are now ready to use the "Step Over (F8)" of the debugger to observe the input and output values as the test loop executes.
